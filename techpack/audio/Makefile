@@ -3,24 +3,12 @@ ifeq ($(CONFIG_ARCH_SDM845), y)
 include $(srctree)/techpack/audio/config/sdm845auto.conf
 export
 endif
-ifeq ($(CONFIG_ARCH_SDM450), y)
-include $(srctree)/techpack/audio/config/sdm450auto.conf
-export
-endif
 ifeq ($(CONFIG_ARCH_SDM670), y)
 include $(srctree)/techpack/audio/config/sdm710auto_static.conf
 export
 endif
 ifeq ($(CONFIG_ARCH_SDXPOORWILLS), y)
 include $(srctree)/techpack/audio/config/sdxpoorwillsauto.conf
-export
-endif
-ifeq ($(CONFIG_PROJECT_VINCE), y)
-include $(srctree)/techpack/audio/config/msm8953auto-vince.conf
-export
-endif
-ifeq ($(CONFIG_PROJECT_SAKURA), y)
-include $(srctree)/techpack/audio/config/msm8953auto-sakura.conf
 export
 endif
 
@@ -38,10 +26,6 @@ ifeq ($(CONFIG_ARCH_SDM845), y)
 LINUXINCLUDE    += \
                 -include $(srctree)/techpack/audio/config/sdm845autoconf.h
 endif
-ifeq ($(CONFIG_ARCH_SDM450), y)
-LINUXINCLUDE    += \
-                -include $(srctree)/techpack/audio/config/sdm450autoconf.h
-endif
 ifeq ($(CONFIG_ARCH_SDM670), y)
 LINUXINCLUDE    += \
                 -include $(srctree)/techpack/audio/config/sdm710autoconf.h
@@ -49,14 +33,6 @@ endif
 ifeq ($(CONFIG_ARCH_SDXPOORWILLS), y)
 LINUXINCLUDE    += \
                 -include $(srctree)/techpack/audio/config/sdxpoorwillsautoconf.h
-endif
-ifeq ($(CONFIG_PROJECT_VINCE), y)
-LINUXINCLUDE    += \
-                -include $(srctree)/techpack/audio/config/msm8953autoconf-vince.h
-endif
-ifeq ($(CONFIG_PROJECT_SAKURA), y)
-LINUXINCLUDE    += \
-                -include $(srctree)/techpack/audio/config/msm8953autoconf-sakura.h
 endif
 
 obj-y += asoc/
