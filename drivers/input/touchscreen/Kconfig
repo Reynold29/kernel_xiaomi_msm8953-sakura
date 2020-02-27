@@ -461,17 +461,15 @@ config TOUCHSCREEN_FUJITSU
 	  To compile this driver as a module, choose M here: the
 	  module will be called fujitsu-ts.
 
-config TOUCHSCREEN_GOODIX
-	tristate "Goodix I2C touchscreen"
+config TOUCHSCREEN_GT9XX
+	bool "Goodix touchpanel GT9xx series"
 	depends on I2C
-	depends on GPIOLIB || COMPILE_TEST
 	help
-	  Say Y here if you have the Goodix touchscreen (such as one
-	  installed in Onda v975w tablets) connected to your
-	  system. It also supports 5-finger chip models, which can be
-	  found on ARM tablets, like Wexler TAB7200 and MSI Primo73.
+	  Say Y here if you have a Goodix GT9xx touchscreen.
+	  Gt9xx controllers are multi touch controllers which can
+	  report 5 touches at a time.
 
-	  If unsure, say N.
+          If unsure, say N.
 
 	  To compile this driver as a module, choose M here: the
 	  module will be called goodix.
@@ -1374,6 +1372,22 @@ config TOUCHSCREEN_SYNAPTICS_DSX
 
           If unsure, say N.
 
+source "drivers/input/touchscreen/synaptics_dsx/Kconfig"
+source "drivers/input/touchscreen/focaltech_touch/Kconfig"
+
+config TOUCHSCREEN_FT5X06
+       tristate "FocalTech touchscreens"
+       depends on I2C
+       help
+         Say Y here if you have a ft5X06 touchscreen.
+	 Ft5x06 controllers are multi touch controllers which can
+	 report 5 touches at a time.
+
+         If unsure, say N.
+
+         To compile this driver as a module, choose M here: the
+         module will be called ft5x06_ts.
+
 config TOUCHSCREEN_GEN_VKEYS
 	tristate "Touchscreen Virtual Keys Driver"
 	help
@@ -1394,6 +1408,19 @@ config FT_SECURE_TOUCH
 	  -To enable secure touch for Focaltech touch driver
 
 	  If unsure, say N.
+
+config TOUCHSCREEN_GT917d
+       tristate "Goodix touchscreens"
+       depends on I2C
+       help
+         Say Y here if you have a GT917d touchscreen.
+         GT917d controllers are multi touch controllers which can
+         report 10 touches at a time.
+
+         If unsure, say N.
+
+         To compile this driver as a module, choose M here: the
+         module will be called GT917d.
 
 config TOUCHSCREEN_FT5446
        tristate "FocalTech touchscreens"
