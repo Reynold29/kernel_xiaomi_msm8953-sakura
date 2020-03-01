@@ -265,7 +265,7 @@
 			/delete-property/ qcom,parallel-usb-9v-min-current-ma;
 			/delete-property/ qcom,parallel-allowed-lowering-ma;
 			qcom,override-usb-current;
-			qcom,fastchg-current-comp = <900>;
+			qcom,fastchg-current-comp = <1200>;
 			qcom,float-voltage-comp = <16>;
 			/delete-property/ qcom,autoadjust-vfloat;
 		};
